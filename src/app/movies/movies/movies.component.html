@@ -1,0 +1,25 @@
+<div class="container-fluid row">
+    <div class="col-md-12 row p-3 mt-2">
+        <div class="col-md-2 bg-secondary">
+            <h2 class="border mt-3">Welcome</h2>
+            <h4 class="border" style="cursor: pointer" (click)="addMovie()">Add Movice</h4>
+            <div *ngFor="let c of categories">
+                <h4 class="border">{{c}}</h4>
+            </div>
+        </div>
+        <div class="col-md-10 row">
+            <div class="card col-md-3 m-1" *ngFor="let m of movies">
+                <div class="card-header row d-block">
+                    <span>Name: {{m.name}}</span>
+                    <button type="button" class="close" (click)="delete(m.id)" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="h-card-body">
+                    <span>Genres: {{m.genres}}</span>
+                    <div (click)='openLink(m.imdbLink)' class="h-100" [ngStyle]="{ 'background-image': 'url(' + m.jpgLink + ')'}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

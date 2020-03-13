@@ -1,0 +1,71 @@
+<div class="modal d-block">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Movie</h4>
+                <button type="button" class="close" (click)="close()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label">Name</label>
+                        <div class="col-md-9">
+                            <input type="text" formControlName="name" class="form-control" placeholder="Enter Name"
+                                [ngClass]="{ 'is-invalid': submitted && formControls.name.errors }">
+                            <div *ngIf="submitted && formControls.name.errors" class="invalid-feedback">
+                                <div *ngIf="formControls.name.errors.required">Please enter name</div>
+                                <div *ngIf="formControls.name.errors.maxLength">Name max Length 30</div>
+                                <div *ngIf="formControls.name.errors.pattern">Name just Engkish</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label">Category</label>
+                        <div class="col-md-9">
+                            <select class="form-control" formControlName="category" placeholder="Category"
+                                [ngClass]="{ 'is-invalid': submitted && formControls.category.errors }">
+                                <option value="" disabled>Choose Category</option>
+                                <option *ngFor="let c of allCategories" [ngValue]="c">{{c}}</option>
+                            </select>
+                            <div *ngIf="submitted && formControls.category.errors" class="invalid-feedback">
+                                <div *ngIf="formControls.category.errors.required">Please enter category</div>
+                            </div>
+                        </div>               
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label">Link</label>
+                        <div class="col-md-9">
+                            <input type="text" formControlName="imdbLink" class="form-control"
+                                placeholder="Enter Link IMDB"
+                                [ngClass]="{ 'is-invalid': submitted && formControls.imdbLink.errors }">
+                            <div *ngIf="submitted && formControls.imdbLink.errors" class="invalid-feedback">
+                                <div *ngIf="formControls.imdbLink.errors.required">Please enter Link Imdb</div>
+                                <div *ngIf="formControls.imdbLink.errors.pattern">Poster Link is invalid</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-3 col-form-label">Poster Link</label>
+                        <div class="col-md-9">
+                            <input type="text" formControlName="posterLink" class="form-control"
+                                placeholder="Enter Poster Link"
+                                [ngClass]="{ 'is-invalid': submitted && formControls.posterLink.errors }">
+                            <div *ngIf="submitted && formControls.posterLink.errors" class="invalid-feedback">
+                                <div *ngIf="formControls.posterLink.errors.required">Please enter your email</div>
+                                <div *ngIf="formControls.posterLink.errors.pattern">Poster Link is invalid</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" (click)="close()">Cancle</button>
+                        <button type="submit" class="btn btn-outline-dark">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

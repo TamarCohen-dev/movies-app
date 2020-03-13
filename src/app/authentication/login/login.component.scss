@@ -1,0 +1,26 @@
+
+.img-login{
+    background-image: url('../../../assets/img/login_original_large.png');
+    background-size: cover;
+}
+
+.text-header {
+    font-size: 20px;
+}
+
+.col-9-flex {
+    & .header {
+        width: 100%;
+        height: 100px;
+    }
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 80px 50px;
+    .form-control {
+        margin-bottom: 20px;
+    }
+}
