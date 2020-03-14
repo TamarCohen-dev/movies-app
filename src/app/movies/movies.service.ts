@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MoviesService {
@@ -17,7 +17,25 @@ export class MoviesService {
         return this.http.get<any>('api/categories');
     }
 
-    deleteMovie(id) {
-        return this.http.delete<any>(`api/movies/${id}`);
+    deleteMovie(name) {
+        return this.http.delete<any>(`api/movie/${name}`);
+    }
+
+    addMovie(movie) {
+        return this.http.post<any>('api/movie', movie);
+    }
+
+    checkLink() {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                'accept': 'application/json',
+                'Content-Type': 'application/json',
+            })
+        };
+        return this.http.get<any>('http://www.imdb.com/title/tt2618986', httpOptions)
+            .map(response => {
+                response
+            })
+            .subscribe();
     }
 }

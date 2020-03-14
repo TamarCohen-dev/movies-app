@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-add-movie',
@@ -10,10 +11,14 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class AddMovieComponent implements OnInit {
   @Input() allCategories: string[];
   @Input() exitsMoviesName: string[];
+  @Output() callback = new EventEmitter();
   form: FormGroup;
   submitted = false;
+  message;
 
-  constructor(private fb: FormBuilder, private activeModal: NgbActiveModal) { }
+  constructor(private fb: FormBuilder,
+    private activeModal: NgbActiveModal,
+    private moviesService: MoviesService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -23,8 +28,8 @@ export class AddMovieComponent implements OnInit {
         Validators.pattern('^[a-zA-Z \-\']+')
       ])),
       category: ['', [Validators.required]],
-      imdbLink: ['', [Validators.required, Validators.pattern(/http:\/\/(?:.*\.|.*)imdb.com\/(?:t|T)itle(?:\?|\/)(..\d+)/i)]],
-      posterLink: ['', [Validators.required, Validators.pattern(/http:\/\/(?:.*\.|.*)imdb.com\/(?:t|T)itle(?:\?|\/)(..\d+)/i)]],
+      imdbLink: ['', [Validators.required, Validators.pattern(/http(|s):\/\/(?:.*\.|.*)imdb.com*/i)]],
+      posterLink: ['', [Validators.required, Validators.pattern(/http(|s):\/\/(?:.*\.|.*)m.media-amazon.com\/images*/i)]],
     });
   }
 
@@ -39,7 +44,16 @@ export class AddMovieComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-    this.close();
+    this.moviesService.addMovie({ ...this.form.value, createDate: new Date }).subscribe((data) => {
+      this.callback.emit(data)
+      this.close();
+    }, error => {
+      this.message = {
+        type: 'error',
+        text: error.error ? error.error.message : 'Not Login!'
+      };
+    }
+    );
   }
 
 }

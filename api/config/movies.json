@@ -1,47 +1,37 @@
 [
     {
-        "id": 1,
         "imdbLink": "http://www.imdb.com/title/tt2618986/",
-        "jpgLink": "assets/img/fast-and-furious-7.jpg",
+        "posterLink": "https://m.media-amazon.com/images/M/MV5BMGNiNjBkYjctZGMzZi00MDU3LTkzNzYtNjM1ODAwN2U2OGEyXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_UY100_CR12,0,100,100_AL_.jpg",
         "name": "Deadpool",
-        "genres": "Action",
-        "img": "deadpool.jpg",
-        "created": "24 March 2012"
+        "category": "Action",
+        "createDate": "2020-02-14T19:32:30.455Z"
     },
     {
-        "id": 2,
         "imdbLink": "http://www.imdb.com/title/tt2618986/",
-        "jpgLink": "assets/img/legend.jpg",
+        "posterLink": "https://m.media-amazon.com/images/M/MV5BNmExMGQyMDAtYTk0My00NTY0LWE0NzMtOWY4Y2JjYjMxZGZjXkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_UY100_CR16,0,100,100_AL_.jpg",
         "name": "We're the Millers",
-        "genres": "Comedy",
-        "img": "we-are-the-millers.jpg",
-        "created": "24 March 2019"
+        "category": "Comedy",
+        "createDate": "2020-03-14T19:32:30.455Z"
     },
     {
-        "id": 3,
         "imdbLink": "http://www.imdb.com/title/tt2618986/",
-        "jpgLink": "assets/img/now-you-see-me.jpg",
+        "posterLink": "https://m.media-amazon.com/images/M/MV5BZWVlZjQ5OTQtZGZkYi00MTIyLWEwMTktYzY4ZDFlZWQyYzUyXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_UY99_CR42,0,99,99_AL_.jpg",
         "name": "Straight Outta",
-        "genres": "Drama",
-        "img": "straight-outta-compton.jpg",
-        "created": "24 March 2016"
+        "category": "Drama",
+        "createDate": "2020-03-10T19:32:30.455Z"
     },
     {
-        "id": 4,
         "imdbLink": "http://www.imdb.com/title/tt2618986/",
-        "jpgLink": "assets/img/the-dark-knight.jpg",
+        "posterLink": "https://m.media-amazon.com/images/M/MV5BMGUxODA2MTItNTFkZS00ODkzLWJlYWQtODMwNzE2NzZmNDNhXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_UX99_CR0,0,99,99_AL_.jpg",
         "name": "Gridiron Gang",
-        "genres": "Other",
-        "img": "gridiron-gang.jpg",
-        "created": "24 March 2012"
+        "category": "Other",
+        "createDate": "2020-02-14T19:32:30.455Z"
     },
     {
-        "id": 5,
         "imdbLink": "http://www.imdb.com/title/tt2618986/",
-        "jpgLink": "assets/img/tracers.jpg",
+        "posterLink": "https://m.media-amazon.com/images/M/MV5BZmM3MDExNmYtNjQ4Ni00OTkyLTg3MzItMjIxMTVhODFhNWEwXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_UY99_CR13,0,99,99_AL_.jpg",
         "name": "American Gangster",
-        "genres": "Drama",
-        "img": "american-gangster.jpg",
-        "created": "24 March 2015"
+        "category": "Drama",
+        "createDate": "2020-03-14T19:32:30.455Z"
     }
 ]

@@ -1,23 +1,24 @@
 <div class="container-fluid row">
     <div class="col-md-12 row p-3 mt-2">
         <div class="col-md-2 bg-secondary">
-            <h2 class="border mt-3">Welcome</h2>
-            <h4 class="border" style="cursor: pointer" (click)="addMovie()">Add Movice</h4>
+            <h2 class="border mt-3 p-2">Welcome: Admin</h2>
+            <h4 class="border p-2" style="cursor: pointer" (click)="addMovie()">Add Movice</h4>
             <div *ngFor="let c of categories">
-                <h4 class="border">{{c}}</h4>
+                <h4 class="border p-2">{{c}}</h4>
             </div>
+            <h4 class="border bg-light p-2" style="cursor: pointer" (click)="logout()">Logout</h4>
         </div>
         <div class="col-md-10 row">
             <div class="card col-md-3 m-1" *ngFor="let m of movies">
                 <div class="card-header row d-block">
                     <span>Name: {{m.name}}</span>
-                    <button type="button" class="close" (click)="delete(m.id)" aria-label="Close">
+                    <button type="button" class="close" (click)="delete(m.name)" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="h-card-body">
-                    <span>Genres: {{m.genres}}</span>
-                    <div (click)='openLink(m.imdbLink)' class="h-100" [ngStyle]="{ 'background-image': 'url(' + m.jpgLink + ')'}"></div>
+                    <div class="mt-2">Category: {{m.category}}</div>
+                    <img class="mt-2" (click)='openLink(m.imdbLink)' src="{{m.posterLink}}">
                 </div>
             </div>
         </div>
