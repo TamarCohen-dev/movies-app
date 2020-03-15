@@ -1,6 +1,16 @@
 const fs = require("fs");
 const configMovies = require('./../config/movies.json')
 
+exports.writeFileCongig = () => {
+  fs.writeFile('./data.json', JSON.stringify(configMovies), err => {
+    if (err) {
+      console.log('Error writing file', err)
+    } else {
+      console.log('Successfully wrote file')
+     }
+  })
+}
+
 writeFile = (movies) => {
     fs.writeFile('./data.json', JSON.stringify(movies), err => {
         if (err) {
@@ -12,8 +22,18 @@ writeFile = (movies) => {
 }
 
 exports.getAll = (req, res) => {
-    writeFile(configMovies)
-    res.send({ movies: configMovies })
+  try {
+    fs.readFile('./data.json', 'utf8', (err, jsonString) => {
+      if (err) {
+        console.log("File read failed:", err)
+        return
+      }
+      const allMovies = JSON.parse(jsonString)
+      res.send({ movies: allMovies })
+  })
+  } catch (err) {
+    res.status(400).send(err)
+  }
 }
 
 exports.deleteMovie = (req, res) => {
