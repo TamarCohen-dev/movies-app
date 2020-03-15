@@ -1,10 +1,12 @@
 Movies App
 
-Installation:
-git clone https://github.com/TamarCohen-dev/movies-app.git
+**1.** go to movie-app/api
+run - node app.js
 
-Usage:
-npm start
+**2.** go to movie-app/src 
+run  - npm start
 
-To run the server 
-Under the folder /api - node app.js
+The app runs on localhost:4200
+And listens to calls at localhost:3000
+
+Good Luck!!!
